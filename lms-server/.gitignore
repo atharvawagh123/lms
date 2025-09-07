@@ -1,0 +1,25 @@
+# Node.js
+node_modules/
+npm-debug.log*
+.eslintcache
+.node_repl_history
+
+# Logs
+logs/
+*.log
+
+# Environment variables
+.env
+.env.*
+
+# Build artifacts
+dist/
+build/
+coverage/
+
+# IDE and OS specific files
+.DS_Store
+.vscode/
+.idea/
+*.sublime-project
+*.sublime-workspace
