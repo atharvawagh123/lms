@@ -7,6 +7,7 @@ const CertificateRouter = require("./Router/CertificateRouter");
 const CourseRouter = require("./Router/CourseRouter");
 const LectureRouter = require("./Router/LectureRouter");
 const EnrollmentRouter = require("./Router/EnrollmentRouter");
+const StudentRouter = require("./Router/StudentRouter");
 
 dotenv.config();
 
@@ -25,6 +26,7 @@ app.use("/api/certificate", CertificateRouter);
 app.use("/api/course", CourseRouter);
 app.use("/api/lecture", LectureRouter);
 app.use("/api/enrollment", EnrollmentRouter);
+app.use("/api/student", StudentRouter);
 
 
 
