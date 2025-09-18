@@ -2,6 +2,9 @@ const jwt = require('jsonwebtoken');
 const Student = require('../Models/Student');
 const path = require('path');
 require('dotenv').config({ path: path.resolve(__dirname, '../.env') });
+const Lecture = require('../Models/Lecture');
+const Course = require('../Models/Course');
+const Enrollment = require('../Models/Enrollment');
 
 // login student
 exports.loginstudent = async (req, res) => {
@@ -50,3 +53,19 @@ exports.getStudentProfile = async (req, res) => {
         res.status(500).json({ message: 'Server error' });
     }
 };
+exports.getEnrolledCourses = async (req, res) => {
+    try {
+        const enrollments = await Enrollment.find({
+            user: req.user.id,
+        });
+        if (!enrollments || enrollments.length === 0) {
+            return res.status(404).json({ message: 'No enrolled courses found' });
+        }
+
+      
+        res.status(200).json({ success: true , enrollments });
+    } catch (error) {
+        console.error('Enrollment Error:', error.message);
+        res.status(500).json({ message: 'Server error' });
+    }
+};  

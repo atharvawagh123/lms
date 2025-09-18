@@ -98,6 +98,12 @@ exports.loginAdmin = async (req, res) => {
       { expiresIn: "24h" }
     );
 
+    res.cookie("token", token, {
+      httpOnly: true,
+      secure: true,
+      sameSite: "none"
+    });
+    
     res.status(200).json({
       token,
       admin: {

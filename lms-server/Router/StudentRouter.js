@@ -7,5 +7,6 @@ router.post("/loginstudent", studentController.loginstudent);
 
 //getmethod
 router.get("/getstudentprofile", auth, studentController.getStudentProfile);
+router.get("/getenrolledcourses", auth, studentController.getEnrolledCourses);
 
 module.exports = router;

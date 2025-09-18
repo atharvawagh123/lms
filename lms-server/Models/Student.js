@@ -20,6 +20,11 @@ const StudentSchema = new mongoose.Schema({
     required: true,
     minlength: 6,
   },
+  role: {
+    type: String,
+    enum: ['student'],
+    default: 'student',
+  },  
   phonenumber: {
     type: Number,
     required: true,

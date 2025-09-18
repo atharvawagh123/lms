@@ -6,7 +6,8 @@ require("dotenv").config({ path: path.resolve(__dirname, "../.env") });
 const authMiddleware = async (req, res, next) => {
   try {
     // Extract token and remove "Bearer " if present
-    const token = req.header("Authorization")?.replace("Bearer ", "");
+    const token =
+      req.header("Authorization")?.replace("Bearer ", "") || req.cookies.token;
     if (!token) {
       return res
         .status(401)
